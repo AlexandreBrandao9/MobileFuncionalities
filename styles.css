@@ -10,6 +10,17 @@ body {
 
 
 
+
+#main-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+
+
 .style-button {
     display: inline-block;
     padding: 10px 20px;
@@ -26,12 +37,12 @@ body {
 }
 
 
-.style-button:hover {
+.style-btn:hover {
     background-color: #45a049;
 }
 
 
 
-.style-button:active {
+.style-btn:active {
     background-color: #3e8e41;
 }
