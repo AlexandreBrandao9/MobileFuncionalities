@@ -9,7 +9,7 @@ const shareData = {
     url: "https://developer.mozilla.org",
   };
   
-  const btn = document.querySelector("#button");
+  const btn = document.querySelector("#button-share");
   const resultPara = document.querySelector("#result");
   
   // Share must be triggered by "user activation"
