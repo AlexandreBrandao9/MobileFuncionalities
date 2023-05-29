@@ -1,26 +1,47 @@
+// Verifica se o navegador suporta a API Web Share
+if (navigator.share) {
+  const shareButton = document.getElementById('button-share');
 
-
-
-
-
-const shareData = {
-    title: "MDN",
-    text: "Learn web development on MDN!",
-    url: "https://developer.mozilla.org",
-  };
-  
-  const btn = document.querySelector("#button-share");
-  const resultPara = document.querySelector("#result");
-  
-  btn.addEventListener("click", async () => {
+  // Adiciona um evento de clique ao botão
+  shareButton.addEventListener('click', async () => {
     try {
-      await navigator.share(shareData);
-      resultPara.textContent = "MDN partilhado com sucesso";
-    } catch (err) {
-      resultPara.textContent = `Error: ${err}`;
-      console.log(err)
+      // Compartilha o conteúdo usando a API Web Share
+      await navigator.share({
+        title: 'Título do compartilhamento',
+        text: 'Texto do compartilhamento',
+        url: 'https://exemplo.com'
+      });
+      console.log('Conteúdo compartilhado com sucesso!');
+    } catch (error) {
+      console.error('Erro ao compartilhar:', error);
     }
   });
+} else {
+  console.log('A API Web Share não é suportada neste navegador.');
+}
+
+
+
+
+
+// const shareData = {
+//     title: "MDN",
+//     text: "Learn web development on MDN!",
+//     url: "https://developer.mozilla.org",
+//   };
+  
+//   const btn = document.querySelector("#button-share");
+//   const resultPara = document.querySelector("#result");
+  
+//   btn.addEventListener("click", async () => {
+//     try {
+//       await navigator.share(shareData);
+//       resultPara.textContent = "MDN partilhado com sucesso";
+//     } catch (err) {
+//       resultPara.textContent = `Error: ${err}`;
+//       console.log(err)
+//     }
+//   });
 
 
 
