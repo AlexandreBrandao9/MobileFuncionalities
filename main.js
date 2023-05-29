@@ -74,11 +74,12 @@ const options = {
   
 function success(pos) {
     const crd = pos.coords;
-  
-    console.log("Your current position is:");
-    console.log(`Latitude : ${crd.latitude}`);
-    console.log(`Longitude: ${crd.longitude}`);
-    console.log(`More or less ${crd.accuracy} meters.`);
+
+    let apresentarLocal = document.getElementById("apresentar-local")
+
+    apresentarLocal.innerHTML = 
+      `Latitude : ${crd.latitude}<br> Longitude: ${crd.longitude}<br> More or less ${crd.accuracy} meters.`
+
 }
   
 function error(err) {
@@ -94,25 +95,3 @@ function error(err) {
 
 
 
-
-let vibrateInterval;
-
-// Starts vibration at passed in level
-function startVibrate(duration) {
-  navigator.vibrate(duration);
-}
-
-// Stops vibration
-function stopVibrate() {
-  // Clear interval and stop persistent vibrating
-  if (vibrateInterval) clearInterval(vibrateInterval);
-  navigator.vibrate(0);
-}
-
-// Start persistent vibration at given duration and interval
-// Assumes a number value is given
-function startPersistentVibrate(duration, interval) {
-  vibrateInterval = setInterval(() => {
-    startVibrate(duration);
-  }, interval);
-}
