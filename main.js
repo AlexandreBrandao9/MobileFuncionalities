@@ -105,9 +105,9 @@ if ('vibrate' in navigator) {
 
   vibrationButton.addEventListener('click', () => {
     if ('vibrate' in navigator && 'VibrationPattern' in window) {
-      navigator.vibrate(new VibrationPattern({ pattern: [2000] }));
+      navigator.vibrate(new VibrationPattern({ pattern: [1000] }));
     } else {
-      navigator.vibrate(2000);
+      navigator.vibrate(1000);
     }
   });
 } else {
