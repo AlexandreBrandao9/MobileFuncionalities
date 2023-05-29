@@ -40,7 +40,7 @@ function success(pos) {
     let apresentarLocal = document.getElementById("apresentar-local")
 
     apresentarLocal.innerHTML = 
-      `Latitude : ${crd.latitude}<br> Longitude: ${crd.longitude}<br> More or less ${crd.accuracy} meters.`
+      `Latitude : <b>${crd.latitude} </b> <br> Longitude: <b>${crd.longitude} </b> <br> Mais ou menos <b>${crd.accuracy} metros</b>`
 
 }
   
@@ -71,10 +71,10 @@ batteryStatusBtn.addEventListener("click", () => {
 
         apresentarBattery.innerHTML = 
           `
-            Nível de carga: ${battery.level * 100}% <br>
-            Conectado à fonte de energia: ${battery.charging ? "Sim" : "Não"} <br>
-            Tempo restante de carga: ${battery.chargingTime} segundos <br>
-            Tempo restante de descarga : ${battery.dischargingTime} segundos
+            Nível de carga: <b>${battery.level * 100}% </b> <br>
+            Conectado à fonte de energia: <b>${battery.charging ? "Sim" : "Não"} </b> <br>
+            Tempo restante de carga: <b>${battery.chargingTime} segundos </b> <br>
+            Tempo restante de descarga : <b>${battery.dischargingTime} segundos </b>
           `
       };
   
