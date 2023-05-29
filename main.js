@@ -15,7 +15,7 @@ const shareData = {
   btn.addEventListener("click", async () => {
     try {
       await navigator.share(shareData);
-      resultPara.textContent = "MDN shared successfully";
+      resultPara.textContent = "MDN partilhado com sucesso";
     } catch (err) {
       resultPara.textContent = `Error: ${err}`;
       console.log(err)
@@ -48,6 +48,50 @@ function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
 }
   
+
+
+
+
+
+
+
+
+
+
+
+const batteryStatusBtn = document.getElementById("battery-status-button")
+
+batteryStatusBtn.addEventListener("click", () => {
+  if ('getBattery' in navigator) {
+    const batteryPromise = navigator.getBattery();
+  
+    batteryPromise.then((battery) => {
+      const updateBatteryStatus = () => {
+        let apresentarBattery = document.getElementById("apresentar-battery")
+
+        apresentarBattery.innerHTML = 
+          `
+            Nível de carga: ${battery.level * 100}% <br>
+            Conectado à fonte de energia: ${battery.charging ? "Sim" : "Não"} <br>
+            Tempo restante de carga: ${battery.chargingTime} segundos <br>
+            Tempo restante de descarga : ${battery.dischargingTime} segundos
+          `
+      };
+  
+      updateBatteryStatus();
+  
+      battery.addEventListener('levelchange', updateBatteryStatus);
+      battery.addEventListener('chargingchange', updateBatteryStatus);
+      battery.addEventListener('chargingtimechange', updateBatteryStatus);
+      battery.addEventListener('dischargingtimechange', updateBatteryStatus);
+    });
+  } else {
+    console.log('A API Battery Status não é suportada neste navegador.');
+  }
+})
+
+
+
 
 
 
