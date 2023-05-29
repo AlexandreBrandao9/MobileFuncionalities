@@ -100,3 +100,25 @@ batteryStatusBtn.addEventListener("click", () => {
 
 
 
+if ('vibrate' in navigator) {
+  const vibrationButton = document.getElementById('vibration-button');
+
+  vibrationButton.addEventListener('click', () => {
+    if ('vibrate' in navigator && 'VibrationPattern' in window) {
+      navigator.vibrate(new VibrationPattern({ pattern: [2000] }));
+    } else {
+      navigator.vibrate(2000);
+    }
+  });
+} else {
+  console.log('A API Vibration não é suportada neste navegador.');
+}
+
+
+
+
+
+
+
+
+
